@@ -1,0 +1,25 @@
+name: main
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - run: npm test
+      - uses: codecov/codecov-action@v1
+        with:
+          fail_ci_if_error: true
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          type: checkov
+          input: ./test-data/checkov.json
+          output: ./checkov.sarif

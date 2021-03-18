@@ -1,0 +1,16 @@
+name: 'sarif-converter'
+description: 'Converts various formats to SARIF for GitHub'
+author: 'khorwood'
+inputs:
+  type:
+    required: true
+    description: 'Type of conversion to perform'
+  input:
+    required: true
+    description: 'The input file to convert'
+  output:
+    required: true
+    description: 'The SARIF output file to create'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

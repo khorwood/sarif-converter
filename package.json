@@ -1,0 +1,64 @@
+{
+  "name": "sarif-converter",
+  "version": "0.1.0",
+  "description": "Convert security tool output to SARIF format",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "xo && nyc ava",
+    "build": "tsc",
+    "package": "ncc build"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khorwood/sarif-converter.git"
+  },
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/khorwood/sarif-converter/issues"
+  },
+  "homepage": "https://github.com/khorwood/sarif-converter#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "ow": "^0.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.35",
+    "@types/sarif": "^2.1.3",
+    "@types/uuid": "^8.3.0",
+    "@vercel/ncc": "^0.27.0",
+    "ava": "^3.15.0",
+    "nyc": "^15.1.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3",
+    "xo": "^0.38.2"
+  },
+  "ava": {
+    "files": [
+      "test/**"
+    ],
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  },
+  "xo": {
+    "rules": {
+      "@typescript-eslint/indent": [
+        "error",
+        4
+      ],
+      "@typescript-eslint/object-curly-spacing": "off"
+    }
+  },
+  "nyc": {
+    "reporter": [
+      "text",
+      "lcov"
+    ]
+  }
+}
