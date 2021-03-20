@@ -1,4 +1,3 @@
-#!/usr/bin/env ts-node-script
 module.exports =
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({

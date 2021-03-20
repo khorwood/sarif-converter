@@ -1,5 +1,3 @@
-#!/usr/bin/env ts-node-script
-
 import * as core from '@actions/core';
 import { promises as fs } from 'fs';
 import ow from 'ow';
