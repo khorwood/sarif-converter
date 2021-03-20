@@ -5,8 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "xo && nyc ava",
-    "build": "tsc",
-    "package": "ncc build"
+    "build": "tsc && ncc build"
   },
   "files": [
     "dist"

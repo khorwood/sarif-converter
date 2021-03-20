@@ -1,7 +1,7 @@
 #!/usr/bin/env ts-node-script
 
 import * as core from '@actions/core';
-import { readFile, writeFile } from 'fs/promises';
+import { promises as fs } from 'fs';
 import ow from 'ow';
 
 import CheckovConverter from './checkov/checkov-converter';
@@ -26,10 +26,10 @@ async function run(): Promise<void> {
     ow(output, ow.string.maxLength(100));
 
     const converter = getConverter(type);
-    const data = await readFile(input);
+    const data = await fs.readFile(input);
     const sarif = converter.convert(data);
 
-    await writeFile(output, JSON.stringify(sarif, null, 4));
+    await fs.writeFile(output, JSON.stringify(sarif, null, 4));
 }
 
 (async function () {

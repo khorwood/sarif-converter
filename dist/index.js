@@ -72,7 +72,7 @@ exports.default = CheckovConverter;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __nccwpck_require__(186);
-const promises_1 = __nccwpck_require__(225);
+const fs_1 = __nccwpck_require__(747);
 const ow_1 = __nccwpck_require__(398);
 const checkov_converter_1 = __nccwpck_require__(440);
 const SupportedTypes = ['checkov'];
@@ -90,9 +90,9 @@ async function run() {
     ow_1.default(input, ow_1.default.string.maxLength(100));
     ow_1.default(output, ow_1.default.string.maxLength(100));
     const converter = getConverter(type);
-    const data = await promises_1.readFile(input);
+    const data = await fs_1.promises.readFile(input);
     const sarif = converter.convert(data);
-    await promises_1.writeFile(output, JSON.stringify(sarif, null, 4));
+    await fs_1.promises.writeFile(output, JSON.stringify(sarif, null, 4));
 }
 (async function () {
     await run();
@@ -5464,14 +5464,6 @@ module.exports = function (str) {
 
 "use strict";
 module.exports = require("fs");;
-
-/***/ }),
-
-/***/ 225:
-/***/ ((module) => {
-
-"use strict";
-module.exports = require("fs/promises");;
 
 /***/ }),
 
