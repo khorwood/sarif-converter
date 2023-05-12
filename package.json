@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/khorwood/sarif-converter#readme",
   "dependencies": {
-    "@actions/core": "^1.2.6",
+    "@actions/core": "^1.9.1",
     "ow": "^0.23.0"
   },
   "devDependencies": {
